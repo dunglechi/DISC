@@ -1,0 +1,5 @@
+{
+  "name": "Trắc nghiệm tính cách DISC",
+  "description": "Một ứng dụng tương tác giúp người dùng hiểu rõ phong cách hành vi của mình dựa trên mô hình DISC. Trả lời một loạt câu hỏi để nhận báo cáo chi tiết về hồ sơ tính cách của bạn.",
+  "requestFramePermissions": []
+}
