@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 import type { QuestionBlock, Answer, QuestionOption } from '../types';
 import { QuestionCategory } from '../types';
 import ProgressBar from './ProgressBar';
@@ -31,10 +31,8 @@ const QuestionScreen: React.FC<QuestionScreenProps> = ({
     onAnswer(questionBlock.id, { most: selectedMost, least: selectedLeast });
   };
   
-  const shuffledOptions = useMemo(() => 
-    [...questionBlock.options].sort(() => Math.random() - 0.5), 
-    [questionBlock.options]
-  );
+  // Logic xáo trộn được thực hiện trực tiếp, không dùng useMemo
+  const shuffledOptions = [...questionBlock.options].sort(() => Math.random() - 0.5);
 
   return (
     <Card className="w-full max-w-2xl mx-auto animate-fade-in-up">
