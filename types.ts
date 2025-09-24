@@ -19,6 +19,7 @@ export const TEST_PHASE_INSTRUCTIONS: Record<TestPhase, string> = {
 
 export enum AppState {
   Welcome,
+  WhatsNew,
   Instructions,
   Testing,
   Calculating,
