@@ -3,9 +3,10 @@ import { Button } from './ui/Button';
 
 interface WelcomeScreenProps {
   onStart: () => void;
+  onShowWhatsNew: () => void;
 }
 
-const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onStart }) => {
+const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onStart, onShowWhatsNew }) => {
   return (
     <div className="text-center bg-white p-8 sm:p-12 rounded-2xl shadow-lg border border-slate-200 animate-fade-in">
       <h1 className="text-3xl sm:text-4xl font-bold text-sky-700">Trắc nghiệm Tính cách DISC Toàn diện</h1>
@@ -24,10 +25,15 @@ const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onStart }) => {
           Hãy trả lời một cách trung thực để có kết quả chính xác nhất.
         </p>
       </div>
-      <div className="mt-10">
+      <div className="mt-10 space-y-4">
         <Button onClick={onStart} size="lg">
           Bắt đầu trắc nghiệm
         </Button>
+        <div>
+          <Button onClick={onShowWhatsNew} variant="secondary" size="md">
+            🚀 Có gì mới?
+          </Button>
+        </div>
       </div>
     </div>
   );

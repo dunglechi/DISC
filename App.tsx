@@ -3,6 +3,7 @@ import React, { useState, useCallback, useEffect } from 'react';
 import { AppState, TestPhase, type AllAnswers, type AllScores, type ResultProfile, type PhaseAnswers, type ConsistencyReport, TEST_PHASE_TITLES } from './types';
 import { QUESTIONS } from './constants';
 import WelcomeScreen from './components/WelcomeScreen';
+import WhatsNewScreen from './components/WhatsNewScreen';
 import InstructionScreen from './components/InstructionScreen';
 import QuestionScreen from './components/QuestionScreen';
 import ResultScreen from './components/ResultScreen';
@@ -23,6 +24,14 @@ export default function App(): React.ReactNode {
 
   const handleStart = useCallback(() => {
     setAppState(AppState.Instructions);
+  }, []);
+
+  const handleShowWhatsNew = useCallback(() => {
+    setAppState(AppState.WhatsNew);
+  }, []);
+
+  const handleBackToWelcome = useCallback(() => {
+    setAppState(AppState.Welcome);
   }, []);
 
   const handleStartPhase = useCallback(() => {
@@ -108,8 +117,11 @@ export default function App(): React.ReactNode {
         }
         return null; 
       case AppState.Welcome:
+        return <WelcomeScreen onStart={handleStart} onShowWhatsNew={handleShowWhatsNew} />;
+      case AppState.WhatsNew:
+        return <WhatsNewScreen onBack={handleBackToWelcome} />;
       default:
-        return <WelcomeScreen onStart={handleStart} />;
+        return <WelcomeScreen onStart={handleStart} onShowWhatsNew={handleShowWhatsNew} />;
     }
   };
 
